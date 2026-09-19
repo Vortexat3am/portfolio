@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+import sharp from "sharp";
 
 export const runtime = "nodejs";
 export const alt = "Romeo Culp — Web Developer & Digital Artist";
@@ -16,17 +17,51 @@ async function loadGoogleFont(family: string, weight: number) {
   return fetch(match[1]).then((res) => res.arrayBuffer());
 }
 
-async function toDataUri(path: string) {
-  const buf = await readFile(join(process.cwd(), "public", path));
+async function toDataUri(buf: Buffer) {
   return `data:image/png;base64,${buf.toString("base64")}`;
 }
 
+// Grayscales the source image, fades it out radially toward the edges, and
+// caps its peak opacity low — baked into the pixels ahead of time since
+// Satori (the OG image renderer) doesn't support mix-blend-mode, CSS
+// filters, or mask-image the way a real browser does. This mirrors the
+// Hero section's atmospheric background-image treatment.
+async function atmosphericImage(publicPath: string, dim: number) {
+  const src = await readFile(join(process.cwd(), "public", publicPath));
+  const base = await sharp(src)
+    .resize(dim, dim, { fit: "cover" })
+    .grayscale()
+    .blur(4)
+    .ensureAlpha()
+    .toBuffer();
+
+  const maskSvg = `<svg width="${dim}" height="${dim}" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="g" cx="50%" cy="50%" r="40%">
+        <stop offset="0%" stop-color="white" stop-opacity="0.2" />
+        <stop offset="100%" stop-color="white" stop-opacity="0" />
+      </radialGradient>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#g)" />
+  </svg>`;
+  const mask = await sharp(Buffer.from(maskSvg)).png().toBuffer();
+
+  // Flatten onto opaque black so the fade is baked into RGB values, not left
+  // as alpha transparency for Satori to (mis)composite.
+  const faded = await sharp(base)
+    .composite([{ input: mask, blend: "dest-in" }])
+    .flatten({ background: "#0a0a0a" })
+    .png()
+    .toBuffer();
+
+  return toDataUri(faded);
+}
+
 export default async function Image() {
-  const [antonFont, logo, img1, img2] = await Promise.all([
+  const [antonFont, logo, atmosphere] = await Promise.all([
     loadGoogleFont("Anton", 400).catch(() => null),
-    toDataUri("images/RCLOGO.png"),
-    toDataUri("images/projects/EyeHeartGFX.png"),
-    toDataUri("images/projects/FallingintoEyeGFX.png"),
+    readFile(join(process.cwd(), "public/images/RCLOGO.png")).then((b) => toDataUri(b)),
+    atmosphericImage("images/projects/FallingintoEyeGFX.png", 900),
   ]);
 
   return new ImageResponse(
@@ -38,82 +73,69 @@ export default async function Image() {
           display: "flex",
           flexDirection: "column",
           backgroundColor: "#0a0a0a",
-          padding: "64px",
           position: "relative",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <img src={logo} width={48} height={48} style={{ opacity: 0.9 }} />
-          <span
-            style={{
-              fontSize: 20,
-              letterSpacing: 6,
-              color: "#f3f1ea",
-              opacity: 0.5,
-              textTransform: "uppercase",
-            }}
-          >
-            Romeo Culp
-          </span>
-        </div>
+        <img
+          src={atmosphere}
+          width={900}
+          height={900}
+          style={{ position: "absolute", right: -180, bottom: -220, objectFit: "cover" }}
+        />
 
-        <div style={{ position: "absolute", right: 64, top: 90, display: "flex" }}>
-          <img
-            src={img1}
-            width={210}
-            height={210}
-            style={{ objectFit: "cover", borderRadius: 14, transform: "rotate(-4deg)" }}
-          />
-          <img
-            src={img2}
-            width={210}
-            height={210}
-            style={{
-              objectFit: "cover",
-              borderRadius: 14,
-              transform: "rotate(3deg)",
-              marginLeft: -20,
-              marginTop: 50,
-            }}
-          />
-        </div>
+        <div style={{ display: "flex", flexDirection: "column", width: "100%", height: "100%", padding: "64px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+            <img src={logo} width={48} height={48} style={{ opacity: 0.9 }} />
+            <span
+              style={{
+                fontSize: 20,
+                letterSpacing: 6,
+                color: "#f3f1ea",
+                opacity: 0.5,
+                textTransform: "uppercase",
+              }}
+            >
+              Romeo Culp
+            </span>
+          </div>
 
-        <div style={{ display: "flex", flexDirection: "column", marginTop: "auto", maxWidth: 760 }}>
-          <span
-            style={{
-              fontSize: 22,
-              letterSpacing: 6,
-              color: "#f3f1ea",
-              opacity: 0.4,
-              textTransform: "uppercase",
-              marginBottom: 12,
-            }}
-          >
-            Portfolio
-          </span>
-          <span
-            style={{
-              fontFamily: antonFont ? "Anton" : undefined,
-              fontWeight: 400,
-              fontSize: 92,
-              lineHeight: 0.95,
-              color: "#f3f1ea",
-              textTransform: "uppercase",
-            }}
-          >
-            Web Development & Digital Art
-          </span>
-          <span
-            style={{
-              fontSize: 26,
-              fontStyle: "italic",
-              color: "#f3f1ea",
-              opacity: 0.6,
-              marginTop: 24,
-            }}
-          >
-            Interfaces that hold up on the clock. Halftones and poster edits off it.
-          </span>
+          <div style={{ display: "flex", flexDirection: "column", marginTop: "auto", maxWidth: 760 }}>
+            <span
+              style={{
+                fontSize: 22,
+                letterSpacing: 6,
+                color: "#f3f1ea",
+                opacity: 0.4,
+                textTransform: "uppercase",
+                marginBottom: 12,
+              }}
+            >
+              Portfolio
+            </span>
+            <span
+              style={{
+                fontFamily: antonFont ? "Anton" : undefined,
+                fontWeight: 400,
+                fontSize: 92,
+                lineHeight: 0.95,
+                color: "#f3f1ea",
+                textTransform: "uppercase",
+              }}
+            >
+              Web Development & Digital Art
+            </span>
+            <span
+              style={{
+                fontSize: 26,
+                fontStyle: "italic",
+                color: "#f3f1ea",
+                opacity: 0.6,
+                marginTop: 24,
+              }}
+            >
+              Interfaces that hold up on the clock. Halftones and poster edits off it.
+            </span>
+          </div>
         </div>
       </div>
     ),

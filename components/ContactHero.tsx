@@ -20,12 +20,19 @@ export default function ContactHero() {
   }, []);
 
   return (
-    <section className="flex min-h-[65svh] w-full flex-col justify-center bg-ink px-5 pt-32 pb-16 text-paper md:px-10">
-      <p className="contact-reveal mb-4 font-sans text-xs uppercase tracking-[0.3em] text-paper/50 opacity-0">
+    <section className="relative flex min-h-[65svh] w-full flex-col justify-center overflow-hidden bg-ink px-5 pt-32 pb-16 text-paper md:px-10">
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute -top-6 right-0 select-none font-display text-[26vw] uppercase leading-none text-paper/[0.04] sm:text-[18vw]"
+      >
+        RC
+      </span>
+
+      <p className="contact-reveal relative mb-4 font-sans text-xs uppercase tracking-[0.3em] text-paper/50 opacity-0">
         Say Hello
       </p>
 
-      <div ref={headlineRef} className="overflow-hidden">
+      <div ref={headlineRef} className="relative overflow-hidden">
         <h1 className="font-display uppercase leading-[0.86] text-[16vw] sm:text-[13vw] lg:text-[9vw]">
           <span className="contact-line block overflow-hidden">
             <span className="block">Let's</span>
