@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 
 export default function ContactHero() {
@@ -21,12 +22,17 @@ export default function ContactHero() {
 
   return (
     <section className="relative flex min-h-[65svh] w-full flex-col justify-center overflow-hidden bg-ink px-5 pt-32 pb-16 text-paper md:px-10">
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-6 right-0 select-none font-display text-[26vw] uppercase leading-none text-paper/[0.04] sm:text-[18vw]"
-      >
-        RC
-      </span>
+      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
+        <div className="absolute inset-0 opacity-[0.4] mix-blend-screen [mask-image:linear-gradient(to_right,transparent_0%,transparent_25%,black_55%)]">
+          <Image
+            src="/images/projects/DragonBallGFX.webp"
+            alt=""
+            fill
+            sizes="100vw"
+            className="object-cover object-right grayscale blur-[1px]"
+          />
+        </div>
+      </div>
 
       <p className="contact-reveal relative mb-4 font-sans text-xs uppercase tracking-[0.3em] text-paper/50 opacity-0">
         Say Hello
