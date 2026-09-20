@@ -3,6 +3,7 @@ import { Anton, Fraunces, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Noise from "@/components/Noise";
+import PageTransition from "@/components/PageTransition";
 import SmoothScroll from "@/components/SmoothScroll";
 
 const anton = Anton({
@@ -52,6 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${anton.variable} ${fraunces.variable} ${spaceGrotesk.variable}`}>
       <body className="font-sans antialiased">
+        <PageTransition />
         <SmoothScroll>
           <Noise />
           <Nav />
