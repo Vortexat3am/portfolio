@@ -10,7 +10,7 @@ if (typeof window !== "undefined") {
 
 const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "";
 
-type Status = "idle" | "sending" | "success" | "error";
+type Status = "idle" | "sending" | "success" | "error" | "blocked";
 
 export default function ContactForm() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -68,7 +68,11 @@ export default function ContactForm() {
         setStatus("error");
       }
     } catch {
-      setStatus("error");
+      // A network-level failure here (as opposed to the API responding
+      // with an error) almost always means something on the visitor's
+      // end — most commonly an ad blocker or privacy extension — kept
+      // the request from ever reaching Web3Forms.
+      setStatus("blocked");
     }
   }
 
@@ -156,6 +160,11 @@ export default function ContactForm() {
               {status === "error" && (
                 <p className="font-sans text-xs uppercase tracking-[0.15em] text-red-700">
                   Something went wrong — try again?
+                </p>
+              )}
+              {status === "blocked" && (
+                <p className="max-w-[220px] font-sans text-xs uppercase tracking-[0.15em] text-red-700">
+                  Request blocked — try disabling your ad blocker, or email me directly below.
                 </p>
               )}
             </div>
