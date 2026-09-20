@@ -133,7 +133,7 @@ export default async function Image() {
                 marginTop: 24,
               }}
             >
-              Interfaces that hold up on the clock. Halftones and poster edits off it.
+              Making digital things feel a little more human, with details that make them worth remembering.
             </span>
           </div>
         </div>
