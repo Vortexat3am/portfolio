@@ -8,15 +8,8 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-ink px-5 pb-8 pt-24 text-paper md:px-10 md:pt-32">
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-6 right-0 select-none font-display text-[26vw] uppercase leading-none text-paper/[0.04] sm:text-[18vw]"
-      >
-        RC
-      </span>
-
-      <div className="relative flex flex-col items-start justify-between gap-10 border-b border-paper/15 pb-16 md:flex-row md:items-end">
+    <footer className="relative bg-ink px-5 pb-8 pt-24 text-paper md:px-10 md:pt-32">
+      <div className="flex flex-col items-start justify-between gap-10 border-b border-paper/15 pb-16 md:flex-row md:items-end">
         <h2 className="font-display text-[14vw] uppercase leading-[1.05] tracking-wider sm:text-[10vw] lg:text-[6.5vw]">
           Let's build
           <br />
