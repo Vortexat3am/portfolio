@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import type { Project } from "@/lib/projects";
+
+const IMAGE_SIZES = "(max-width: 768px) 90vw, 700px";
 
 export default function ProjectLightbox({
   projects,
@@ -20,6 +22,28 @@ export default function ProjectLightbox({
   const cardRef = useRef<HTMLDivElement>(null);
   const isOpen = openIndex !== null;
   const project = isOpen ? projects[openIndex] : null;
+
+  // Keep showing the previous project's image until the next one has
+  // actually loaded, instead of swapping `src` immediately and leaving a
+  // blank/black frame while it fetches through the image optimizer.
+  const [visibleIndex, setVisibleIndex] = useState<number | null>(openIndex);
+  useEffect(() => {
+    if (openIndex === null) {
+      setVisibleIndex(null);
+      return;
+    }
+    if (visibleIndex === null) {
+      setVisibleIndex(openIndex);
+      return;
+    }
+    if (openIndex === visibleIndex) return;
+
+    const fallback = window.setTimeout(() => setVisibleIndex(openIndex), 1500);
+    return () => window.clearTimeout(fallback);
+  }, [openIndex, visibleIndex]);
+
+  const visibleProject = visibleIndex !== null ? projects[visibleIndex] : null;
+  const preloadProject = isOpen && openIndex !== visibleIndex ? projects[openIndex!] : null;
 
   useEffect(() => {
     if (!overlayRef.current || !cardRef.current) return;
@@ -76,18 +100,31 @@ export default function ProjectLightbox({
 
       <div
         ref={cardRef}
-        className="relative flex max-h-[92vh] w-full max-w-5xl flex-col overflow-hidden rounded-2xl border border-paper/15 bg-ink shadow-[0_30px_80px_rgba(0,0,0,0.6)] md:flex-row"
+        className="relative flex max-h-[92vh] w-full max-w-5xl flex-col overflow-y-auto rounded-2xl border border-paper/15 bg-ink shadow-[0_30px_80px_rgba(0,0,0,0.6)] md:flex-row md:overflow-hidden"
       >
-        <div className="relative flex h-[45vh] w-full flex-1 items-center justify-center bg-black/30 p-4 sm:p-8 md:h-auto">
-          {project && (
+        <div className="relative flex aspect-[4/3] w-full shrink-0 items-center justify-center bg-black/30 p-4 sm:aspect-video sm:p-8 md:aspect-auto md:h-auto md:flex-1">
+          {visibleProject && (
             <Image
-              src={project.image}
-              alt={project.title}
+              key={visibleProject.id}
+              src={visibleProject.image}
+              alt={visibleProject.title}
               fill
-              sizes="(max-width: 768px) 90vw, 700px"
+              sizes={IMAGE_SIZES}
               className="object-contain"
               priority
             />
+          )}
+          {preloadProject && (
+            <div className="pointer-events-none absolute h-px w-px overflow-hidden opacity-0" aria-hidden="true">
+              <Image
+                key={preloadProject.id}
+                src={preloadProject.image}
+                alt=""
+                fill
+                sizes={IMAGE_SIZES}
+                onLoad={() => setVisibleIndex(openIndex)}
+              />
+            </div>
           )}
         </div>
 
@@ -99,7 +136,7 @@ export default function ProjectLightbox({
             <h3 className="mt-2 font-display text-4xl uppercase leading-[0.9] text-paper">
               {project?.title}
             </h3>
-            <p className="mt-4 font-serif italic text-paper/60">{project?.blurb}</p>
+            <p className="mt-4 font-sans text-sm leading-relaxed text-paper/60">{project?.blurb}</p>
             {project?.link && (
               <a
                 href={project.link}
