@@ -5,6 +5,7 @@ import Nav from "@/components/Nav";
 import Noise from "@/components/Noise";
 import PageTransition from "@/components/PageTransition";
 import SmoothScroll from "@/components/SmoothScroll";
+import { SITE_URL } from "@/lib/site";
 
 const anton = Anton({
   subsets: ["latin"],
@@ -29,6 +30,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Romeo Culp — Web Developer & Digital Artist",
   description:
     "Portfolio of Romeo Culp — web developer and digital artist. Front-end builds, photo edits, posters, and brand work.",
