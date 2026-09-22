@@ -49,7 +49,7 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" ref={sectionRef} className="relative bg-paper pl-[clamp(2.5rem,6vw,12rem)] pr-5 py-24 text-ink md:pr-6 md:py-32 lg:pr-8">
+    <section id="about" ref={sectionRef} className="relative bg-paper px-5 py-24 text-ink md:pl-[clamp(2.5rem,6vw,12rem)] md:pr-6 md:py-32 lg:pr-8">
       <div className="grid gap-14 md:grid-cols-[1.1fr_0.9fr] md:items-center md:gap-10">
         <div>
           <p className="about-reveal mb-6 font-sans text-sm font-bold uppercase tracking-[0.3em] text-ink/40 sm:mb-8 sm:text-base">
