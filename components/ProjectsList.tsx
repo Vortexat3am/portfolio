@@ -95,7 +95,7 @@ export default function ProjectsList() {
             Projects
           </h2>
         </div>
-        <p className="max-w-xs font-serif italic text-paper/50">
+        <p className="max-w-xs font-serif text-paper/50">
           Six pieces — a live concept build and a run of photo-edited chaos. Click a title to dive in.
         </p>
       </div>

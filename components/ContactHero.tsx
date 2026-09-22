@@ -57,7 +57,7 @@ export default function ContactHero() {
         </h1>
       </div>
 
-      <p className="contact-reveal mt-8 max-w-lg font-serif italic text-lg text-paper/60 opacity-0">
+      <p className="contact-reveal mt-8 max-w-lg font-serif text-lg text-paper/60 opacity-0">
         Got a project, a collab, or just want to talk shop? Drop the details below.
       </p>
     </section>

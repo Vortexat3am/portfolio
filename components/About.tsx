@@ -58,7 +58,7 @@ export default function About() {
           <h2 className="about-reveal font-display text-[13vw] leading-[0.85] tracking-normal sm:text-[8vw] lg:text-[5vw]">
             So, Who Am I?
           </h2>
-          <p className="about-reveal mt-12 max-w-2xl text-justify font-serif text-xl italic leading-relaxed text-ink/70 sm:mt-16 sm:text-2xl">
+          <p className="about-reveal mt-12 max-w-2xl text-justify font-serif text-xl leading-relaxed text-ink/70 sm:mt-16 sm:text-2xl">
             Hi! I am Romeo Culp. Professionally speaking, I am a web developer, but truly, I have
             always simply been fascinated with technology overall. There is just so much to
             figure out about the technology that we have and then there are the newest

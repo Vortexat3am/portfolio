@@ -85,14 +85,14 @@ export default function ContactForm() {
         <h2 className="contact-form-reveal font-display text-[11vw] uppercase leading-[0.95] sm:text-[6vw]">
           Send A Message
         </h2>
-        <p className="contact-form-reveal mt-8 max-w-md font-serif italic text-lg text-ink/60">
+        <p className="contact-form-reveal mt-8 max-w-md font-serif text-lg text-ink/60">
           Fill this out and it comes straight to my inbox.
         </p>
 
         {status === "success" ? (
           <div className="contact-form-reveal mt-14 border-t border-ink/15 pt-8">
             <p className="font-display text-3xl uppercase">Got it.</p>
-            <p className="mt-3 max-w-sm font-serif italic text-ink/60">
+            <p className="mt-3 max-w-sm font-serif text-ink/60">
               Thanks for reaching out — I'll get back to you soon.
             </p>
             <button

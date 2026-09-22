@@ -90,7 +90,7 @@ export default function Hero() {
       </h1>
 
       <div className="hero-sub relative z-10 mt-8 flex flex-col gap-6 opacity-0 sm:flex-row sm:items-end sm:justify-between">
-        <p className="max-w-sm font-serif italic text-lg text-paper/60">
+        <p className="max-w-sm font-serif text-lg text-paper/60">
           Making digital things feel a little more human, with details that make them worth remembering.
         </p>
         <div className="flex shrink-0 gap-4">

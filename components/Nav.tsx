@@ -101,7 +101,7 @@ export default function Nav() {
             {link.label}
           </Link>
         ))}
-        <span className="mt-8 font-serif italic text-paper/40">romeoculp@icloud.com</span>
+        <span className="mt-8 font-serif text-paper/40">romeoculp@icloud.com</span>
       </div>
     </>
   );
