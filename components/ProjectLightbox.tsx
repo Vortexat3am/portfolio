@@ -93,7 +93,7 @@ export default function ProjectLightbox({
         type="button"
         onClick={onClose}
         aria-label="Close"
-        className="fixed right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-paper/25 bg-ink text-paper transition-colors hover:border-paper sm:right-8 sm:top-8"
+        className="fixed right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-paper/40 bg-ink text-paper transition hover:scale-105 hover:border-paper sm:right-8 sm:top-8"
       >
         ×
       </button>
@@ -153,7 +153,7 @@ export default function ProjectLightbox({
             <button
               type="button"
               onClick={() => onNavigate(-1)}
-              className="font-sans text-xs uppercase tracking-[0.2em] text-paper/50 transition-colors hover:text-paper"
+              className="rounded-full border border-paper/40 px-4 py-2 font-sans text-xs uppercase tracking-[0.2em] text-paper/70 transition hover:scale-105 hover:border-paper hover:text-paper"
             >
               ← Prev
             </button>
@@ -163,7 +163,7 @@ export default function ProjectLightbox({
             <button
               type="button"
               onClick={() => onNavigate(1)}
-              className="font-sans text-xs uppercase tracking-[0.2em] text-paper/50 transition-colors hover:text-paper"
+              className="rounded-full border border-paper/40 px-4 py-2 font-sans text-xs uppercase tracking-[0.2em] text-paper/70 transition hover:scale-105 hover:border-paper hover:text-paper"
             >
               Next →
             </button>
