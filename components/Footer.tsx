@@ -17,7 +17,7 @@ export default function Footer() {
         </h2>
         <Link
           href="/contact"
-          className="shrink-0 rounded-full bg-paper px-8 py-4 font-sans text-sm font-bold uppercase tracking-[0.14em] text-ink transition-transform hover:-translate-y-1"
+          className="shrink-0 rounded-full bg-paper px-8 py-4 font-sans text-sm font-bold uppercase tracking-[0.14em] text-ink transition-transform hover:scale-105"
         >
           Get In Touch
         </Link>

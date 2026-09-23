@@ -96,13 +96,13 @@ export default function Hero() {
         <div className="flex shrink-0 gap-4">
           <a
             href="#work"
-            className="rounded-full bg-paper px-8 py-4 font-sans text-sm font-bold uppercase tracking-[0.14em] text-ink transition-transform hover:-translate-y-0.5"
+            className="rounded-full bg-paper px-8 py-4 font-sans text-sm font-bold uppercase tracking-[0.14em] text-ink transition-transform hover:scale-105"
           >
             See Projects
           </a>
           <Link
             href="/contact"
-            className="rounded-full border border-paper/40 px-8 py-4 font-sans text-sm font-bold uppercase tracking-[0.14em] text-paper transition-colors hover:border-paper"
+            className="rounded-full border border-paper/40 px-8 py-4 font-sans text-sm font-bold uppercase tracking-[0.14em] text-paper transition hover:scale-105 hover:border-paper"
           >
             Get In Touch
           </Link>
