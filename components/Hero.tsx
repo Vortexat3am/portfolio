@@ -15,17 +15,20 @@ export default function Hero() {
     if (!section) return;
 
     const pos = { x: 0, y: 0 };
+    const frontEls = section.querySelectorAll<HTMLElement>(".hero-line-front");
     function applyVars() {
-      section!.style.setProperty("--mx", `${pos.x}px`);
-      section!.style.setProperty("--my", `${pos.y}px`);
+      frontEls.forEach((el) => {
+        const r = el.getBoundingClientRect();
+        el.style.setProperty("--mx", `${pos.x - r.left}px`);
+        el.style.setProperty("--my", `${pos.y - r.top}px`);
+      });
     }
     const xTo = gsap.quickTo(pos, "x", { duration: 0.45, ease: "power3", onUpdate: applyVars });
     const yTo = gsap.quickTo(pos, "y", { duration: 0.45, ease: "power3", onUpdate: applyVars });
 
     function onMove(e: MouseEvent) {
-      const rect = section!.getBoundingClientRect();
-      xTo(e.clientX - rect.left);
-      yTo(e.clientY - rect.top);
+      xTo(e.clientX);
+      yTo(e.clientY);
     }
 
     section.addEventListener("mousemove", onMove);

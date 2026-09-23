@@ -50,13 +50,13 @@ body {
 /* hero spotlight mask */
 .spotlight-text {
   -webkit-mask-image: radial-gradient(
-    280px circle at var(--mx, 50%) var(--my, 50%),
+    210px circle at var(--mx, 50%) var(--my, 50%),
     black 0%,
     black 45%,
     transparent 82%
   );
   mask-image: radial-gradient(
-    280px circle at var(--mx, 50%) var(--my, 50%),
+    210px circle at var(--mx, 50%) var(--my, 50%),
     black 0%,
     black 45%,
     transparent 82%
