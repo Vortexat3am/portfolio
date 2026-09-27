@@ -34,7 +34,7 @@ export default function ContactHero() {
             alt=""
             fill
             sizes="100vw"
-            className="object-cover object-right grayscale blur-[1px]"
+            className="object-cover object-right blur-[1px]"
           />
         </div>
       </div>
