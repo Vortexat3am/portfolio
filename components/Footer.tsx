@@ -24,7 +24,7 @@ export default function Footer() {
       </div>
 
       <div className="flex flex-col gap-6 pt-8 sm:flex-row sm:items-center sm:justify-between">
-        <p className="font-sans text-xs uppercase tracking-[0.2em] text-paper/40">
+        <p className="font-sans text-xs uppercase tracking-[0.2em] text-paper/60">
           © {new Date().getFullYear()} Romeo Culp
         </p>
         <div className="flex gap-6">

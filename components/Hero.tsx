@@ -111,7 +111,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-paper/40 md:flex">
+      <div className="pointer-events-none absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-paper/60 md:flex">
         <span className="font-sans text-[10px] uppercase tracking-[0.3em]">Scroll</span>
         <span className="h-10 w-px bg-paper/30" />
       </div>

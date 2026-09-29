@@ -130,7 +130,7 @@ export default function ProjectLightbox({
 
         <div className="flex w-full shrink-0 flex-col justify-between gap-6 border-t border-paper/15 p-6 md:w-[300px] md:border-l md:border-t-0 md:p-8">
           <div>
-            <p className="font-sans text-xs uppercase tracking-[0.25em] text-paper/40">
+            <p className="font-sans text-xs uppercase tracking-[0.25em] text-paper/60">
               {project ? `${project.index} — ${project.category}` : ""}
             </p>
             {project && (
@@ -159,7 +159,7 @@ export default function ProjectLightbox({
             >
               ← Prev
             </button>
-            <span className="font-sans text-xs text-paper/30">
+            <span className="font-sans text-xs text-paper/60">
               {isOpen ? `${(openIndex ?? 0) + 1} / ${projects.length}` : ""}
             </span>
             <button

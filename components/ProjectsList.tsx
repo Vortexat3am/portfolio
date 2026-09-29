@@ -88,7 +88,7 @@ export default function ProjectsList() {
     <section id="work" className="relative bg-ink px-5 py-24 md:px-10 md:py-32">
       <div className="mb-14 flex flex-col gap-4 md:mb-20 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="mb-3 font-sans text-xs uppercase tracking-[0.3em] text-paper/40">
+          <p className="mb-3 font-sans text-xs uppercase tracking-[0.3em] text-paper/60">
             Selected Work
           </p>
           <h2 className="font-display text-[13vw] uppercase leading-[0.85] text-paper sm:text-[9vw] lg:text-[5.5vw]">
@@ -123,7 +123,7 @@ export default function ProjectsList() {
             }}
             className="group flex cursor-pointer flex-col gap-4 border-b border-paper/15 py-6 outline-none transition-colors md:flex-row md:items-center md:gap-8 md:py-8 hover:bg-paper/[0.03] focus-visible:bg-paper/[0.03]"
           >
-            <span className="font-sans text-sm text-paper/35 md:w-12">{project.index}</span>
+            <span className="font-sans text-sm text-paper/60 md:w-12">{project.index}</span>
 
             <div className="block h-40 w-full overflow-hidden rounded-lg border border-paper/10 md:hidden">
               <Image
@@ -140,7 +140,7 @@ export default function ProjectsList() {
               {project.title}
             </span>
 
-            <span className="font-sans text-xs uppercase tracking-[0.2em] text-paper/40 md:text-right">
+            <span className="font-sans text-xs uppercase tracking-[0.2em] text-paper/60 md:text-right">
               {project.category}
             </span>
           </div>

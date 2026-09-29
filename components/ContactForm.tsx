@@ -79,7 +79,7 @@ export default function ContactForm() {
   return (
     <section ref={sectionRef} className="bg-paper px-5 py-28 text-ink md:px-10 md:py-36">
       <div className="mx-auto max-w-2xl">
-        <p className="contact-form-reveal mb-6 font-sans text-xs font-bold uppercase tracking-[0.3em] text-ink/40">
+        <p className="contact-form-reveal mb-6 font-sans text-xs font-bold uppercase tracking-[0.3em] text-ink/60">
           Get In Touch
         </p>
         <h2 className="contact-form-reveal font-display text-[11vw] uppercase leading-[0.95] sm:text-[6vw]">
@@ -98,7 +98,7 @@ export default function ContactForm() {
             <button
               type="button"
               onClick={() => setStatus("idle")}
-              className="mt-6 font-sans text-xs font-bold uppercase tracking-[0.2em] text-ink/50 underline underline-offset-4 transition-colors hover:text-ink"
+              className="mt-6 font-sans text-xs font-bold uppercase tracking-[0.2em] text-ink/60 underline underline-offset-4 transition-colors hover:text-ink"
             >
               Send another
             </button>
@@ -106,7 +106,7 @@ export default function ContactForm() {
         ) : (
           <form onSubmit={handleSubmit} className="contact-form-reveal mt-14 flex flex-col gap-8">
             <label className="flex flex-col gap-2">
-              <span className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-ink/40">
+              <span className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-ink/60">
                 Name
               </span>
               <input
@@ -120,7 +120,7 @@ export default function ContactForm() {
             </label>
 
             <label className="flex flex-col gap-2">
-              <span className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-ink/40">
+              <span className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-ink/60">
                 Email
               </span>
               <input
@@ -134,7 +134,7 @@ export default function ContactForm() {
             </label>
 
             <label className="flex flex-col gap-2">
-              <span className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-ink/40">
+              <span className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-ink/60">
                 Message
               </span>
               <textarea

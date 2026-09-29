@@ -23,7 +23,7 @@ export default function ContactPage() {
         >
           ← Back to home
         </Link>
-        <p className="font-sans text-xs uppercase tracking-[0.2em] text-paper/40">
+        <p className="font-sans text-xs uppercase tracking-[0.2em] text-paper/60">
           © {new Date().getFullYear()} Romeo Culp
         </p>
       </footer>

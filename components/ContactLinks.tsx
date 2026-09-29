@@ -44,7 +44,7 @@ export default function ContactLinks() {
   return (
     <section ref={sectionRef} className="border-t border-paper/10 bg-ink px-5 pb-28 pt-20 text-paper md:px-10 md:pb-32">
       <div className="mx-auto max-w-2xl">
-        <p className="contact-links-reveal mb-8 font-sans text-xs font-bold uppercase tracking-[0.3em] text-paper/40">
+        <p className="contact-links-reveal mb-8 font-sans text-xs font-bold uppercase tracking-[0.3em] text-paper/60">
           Find Me Elsewhere
         </p>
         <div className="contact-links-reveal flex flex-col gap-1">
@@ -56,7 +56,7 @@ export default function ContactLinks() {
               rel={m.href.startsWith("http") ? "noopener noreferrer" : undefined}
               className="group flex flex-col border-b border-paper/15 py-5 transition-colors hover:border-paper/40 sm:flex-row sm:items-baseline sm:justify-between"
             >
-              <span className="font-sans text-xs uppercase tracking-[0.25em] text-paper/40">
+              <span className="font-sans text-xs uppercase tracking-[0.25em] text-paper/60">
                 {m.label}
               </span>
               <span className="font-display text-3xl uppercase transition-all duration-300 group-hover:italic group-hover:tracking-wide sm:text-4xl">
