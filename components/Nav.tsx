@@ -48,14 +48,14 @@ export default function Nav() {
           href="/"
           aria-label="Romeo Culp — home"
           onClick={() => setOpen(false)}
-          className="pointer-events-auto transition-transform duration-300 hover:-translate-y-1 hover:rotate-[-3deg]"
+          className="pointer-events-auto"
         >
           <Image
             src="/images/RCLOGO.png"
             alt="Romeo Culp emblem"
             width={110}
             height={110}
-            className="w-16 sm:w-20 md:w-24 h-auto drop-shadow-[0_4px_16px_rgba(0,0,0,0.5)]"
+            className="w-20 sm:w-24 md:w-28 h-auto"
             priority
           />
         </Link>

@@ -16,8 +16,8 @@ const config: Config = {
       },
       fontFamily: {
         display: ["var(--font-display)"],
-        serif: ["var(--font-serif)"],
-        sans: ["var(--font-sans)"],
+        serif: ["var(--font-body)"],
+        sans: ["var(--font-body)"],
       },
       letterSpacing: {
         tightest: "-0.04em",

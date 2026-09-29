@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { Anton, Fraunces, Space_Grotesk } from "next/font/google";
+import { Anton, Atkinson_Hyperlegible } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Noise from "@/components/Noise";
@@ -15,18 +15,11 @@ const anton = Anton({
   display: "swap",
 });
 
-const fraunces = Fraunces({
+const atkinson = Atkinson_Hyperlegible({
   subsets: ["latin"],
   style: ["normal", "italic"],
-  weight: ["300", "400", "500"],
-  variable: "--font-serif",
-  display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-sans",
+  weight: ["400", "700"],
+  variable: "--font-body",
   display: "swap",
 });
 
@@ -69,7 +62,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${anton.variable} ${fraunces.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${anton.variable} ${atkinson.variable}`}>
       <body className="font-sans antialiased">
         <script
           type="application/ld+json"
