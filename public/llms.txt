@@ -1,0 +1,20 @@
+# Romeo Culp
+
+> Web developer and front-end engineer based on the web at romeo.bavtsbackstacks.org. Builds clean, considered front-ends with React and Next.js, and also does photo editing, poster design, and brand work.
+
+Romeo Culp is primarily a web developer / front-end engineer. His main focus is front-end engineering — building interfaces with React, Next.js, and Tailwind CSS. Photo editing, poster design, and brand identity work are a secondary, complementary skill set, not his primary discipline.
+
+## Pages
+
+- [Home](https://romeo.bavtsbackstacks.org/): Portfolio homepage featuring selected projects, skills, and background.
+- [Contact](https://romeo.bavtsbackstacks.org/contact): Contact form and direct links to get in touch about projects, collaborations, or freelance work.
+
+## Projects
+
+- Kage — a full concept website for an anime-style co-op action roguelite, designed and built entirely on spec (unsolicited, not commissioned) and sent directly to the studio behind the game.
+- The Challenger, Love At First Sight, Losing Focus, The Black Swordsman — digital illustration and poster design work.
+- Veil — brand identity and app design work.
+
+## Links
+
+- GitHub: https://github.com/Vortexat3am

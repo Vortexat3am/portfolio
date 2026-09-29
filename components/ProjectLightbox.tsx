@@ -133,9 +133,11 @@ export default function ProjectLightbox({
             <p className="font-sans text-xs uppercase tracking-[0.25em] text-paper/40">
               {project ? `${project.index} — ${project.category}` : ""}
             </p>
-            <h3 className="mt-2 font-display text-4xl uppercase leading-[0.9] text-paper">
-              {project?.title}
-            </h3>
+            {project && (
+              <h3 className="mt-2 font-display text-4xl uppercase leading-[0.9] text-paper">
+                {project.title}
+              </h3>
+            )}
             <p className="mt-4 font-sans text-sm leading-relaxed text-paper/60">{project?.blurb}</p>
             {project?.link && (
               <a

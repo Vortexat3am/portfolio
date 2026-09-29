@@ -50,7 +50,6 @@ export default function Hero() {
       ref={sectionRef}
       id="home"
       className="relative flex min-h-[100svh] w-full flex-col justify-center overflow-hidden bg-ink px-5 pt-32 pb-16 md:px-10 lg:px-14"
-      style={{ ["--mx" as string]: "50%", ["--my" as string]: "50%" } as React.CSSProperties}
     >
       <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
         <div className="absolute -right-[8%] -bottom-[12%] h-[80%] w-[70%] opacity-[0.22] mix-blend-screen [mask-image:radial-gradient(ellipse_at_center,black_0%,transparent_68%)] sm:h-[90%]">
