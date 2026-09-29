@@ -42,7 +42,7 @@ export default function PageTransition() {
       aria-hidden="true"
     >
       <div ref={logoRef} className="w-28 sm:w-36">
-        <Image src="/images/RCLOGO.png" alt="" width={110} height={110} className="h-auto w-full" priority />
+        <Image src="/images/RCLOGO.png" alt="Romeo Culp logo" width={110} height={110} className="h-auto w-full" priority />
       </div>
     </div>
   );

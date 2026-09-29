@@ -55,7 +55,7 @@ export default function Hero() {
         <div className="absolute -right-[8%] -bottom-[12%] h-[80%] w-[70%] opacity-[0.22] mix-blend-screen [mask-image:radial-gradient(ellipse_at_center,black_0%,transparent_68%)] sm:h-[90%]">
           <Image
             src="/images/projects/FallingintoEyeGFX.png"
-            alt=""
+            alt="Grainy monochrome illustration of an eye, decorative background accent"
             fill
             sizes="70vw"
             className="object-cover grayscale blur-[1px]"

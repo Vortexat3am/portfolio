@@ -119,7 +119,7 @@ export default function ProjectLightbox({
               <Image
                 key={preloadProject.id}
                 src={preloadProject.image}
-                alt=""
+                alt={preloadProject.title}
                 fill
                 sizes={IMAGE_SIZES}
                 onLoad={() => setVisibleIndex(openIndex)}

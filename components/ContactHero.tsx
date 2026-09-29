@@ -31,7 +31,7 @@ export default function ContactHero() {
         <div className="absolute inset-0 opacity-[0.4] mix-blend-screen [mask-image:linear-gradient(to_right,transparent_0%,transparent_25%,black_55%)]">
           <Image
             src="/images/projects/DragonBallGFX.webp"
-            alt=""
+            alt="Dragon Ball fan art poster, decorative background accent"
             fill
             sizes="100vw"
             className="object-cover object-right blur-[1px]"

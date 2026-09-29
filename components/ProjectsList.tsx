@@ -157,7 +157,7 @@ export default function ProjectsList() {
       {warmThumbs && (
         <div className="sr-only" aria-hidden="true">
           {projects.map((p) => (
-            <Image key={p.id} src={p.image} alt="" width={520} height={640} sizes="260px" loading="eager" />
+            <Image key={p.id} src={p.image} alt={p.title} width={520} height={640} sizes="260px" loading="eager" />
           ))}
         </div>
       )}
