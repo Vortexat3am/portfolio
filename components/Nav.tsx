@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 const links = [
-  { label: "Work", href: "/#work" },
+  { label: "Work", href: "/work" },
   { label: "About", href: "/#about" },
   { label: "Contact", href: "/contact" },
 ];

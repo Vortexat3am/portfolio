@@ -7,6 +7,7 @@ Romeo Culp is primarily a web developer / front-end engineer. His main focus is 
 ## Pages
 
 - [Home](https://romeo.bavtsbackstacks.org/): Portfolio homepage featuring selected projects, skills, and background.
+- [Work](https://romeo.bavtsbackstacks.org/work): Full archive of every project, each with its own write-up.
 - [Contact](https://romeo.bavtsbackstacks.org/contact): Contact form and direct links to get in touch about projects, collaborations, or freelance work.
 
 ## Projects

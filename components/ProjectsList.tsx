@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { projects } from "@/lib/projects";
@@ -95,9 +96,17 @@ export default function ProjectsList() {
             Projects
           </h2>
         </div>
-        <p className="max-w-xs font-serif text-paper/50">
-          Six pieces — a live concept build and a run of photo-edited chaos. Click a title to dive in.
-        </p>
+        <div className="max-w-xs">
+          <p className="font-serif text-paper/50">
+            Six pieces — a live concept build and a run of photo-edited chaos. Click a title to dive in.
+          </p>
+          <Link
+            href="/work"
+            className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-paper/40 px-5 py-2.5 font-sans text-xs font-bold uppercase tracking-[0.2em] text-paper transition hover:scale-105 hover:border-paper"
+          >
+            View All Projects →
+          </Link>
+        </div>
       </div>
 
       <div
