@@ -57,7 +57,7 @@ export default function WorkGrid() {
           Every project so far, laid out in full — concept builds, fan art, and brand explorations. Click any piece to dive in.
         </p>
 
-        <div className="mt-16 grid gap-16 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-20 md:mt-20">
+        <div className="mt-16 grid gap-8 sm:grid-cols-2 sm:gap-8 md:mt-20">
           {projects.map((project, i) => (
             <div
               key={project.id}
@@ -67,9 +67,9 @@ export default function WorkGrid() {
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") setOpenIndex(i);
               }}
-              className="work-reveal group cursor-pointer outline-none"
+              className="work-reveal group flex cursor-pointer flex-col rounded-2xl border border-paper/15 bg-paper/[0.03] p-4 outline-none transition-colors duration-300 hover:border-paper/35 hover:bg-paper/[0.06] sm:p-5"
             >
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-paper/10 bg-paper/5">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-paper/15 bg-paper/5">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -78,23 +78,15 @@ export default function WorkGrid() {
                   className="object-cover transition duration-500 group-hover:scale-105"
                 />
               </div>
-              <div className="mt-5 flex items-start justify-between gap-4">
-                <div>
-                  <p className="font-sans text-xs uppercase tracking-[0.2em] text-paper/60">
-                    {project.index} — {project.category}
-                  </p>
-                  <h2 className="mt-1 font-display text-3xl uppercase leading-none transition-all duration-300 group-hover:italic sm:text-4xl">
-                    {project.title}
-                  </h2>
-                </div>
-                <span
-                  aria-hidden="true"
-                  className="mt-1 shrink-0 font-sans text-sm text-paper/60 transition group-hover:translate-x-1 group-hover:text-paper"
-                >
-                  →
-                </span>
+              <div className="mt-5">
+                <p className="font-sans text-xs uppercase tracking-[0.2em] text-paper/60">
+                  {project.index} — {project.category}
+                </p>
+                <h2 className="mt-1 font-display text-3xl uppercase leading-none transition-all duration-300 group-hover:italic sm:text-4xl">
+                  {project.title}
+                </h2>
               </div>
-              <p className="mt-3 max-w-md font-serif text-sm leading-relaxed text-paper/60 sm:text-base">
+              <p className="mt-3 line-clamp-4 max-w-md font-serif text-sm leading-relaxed text-paper/60 sm:text-base">
                 {project.blurb}
               </p>
             </div>

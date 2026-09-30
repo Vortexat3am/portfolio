@@ -96,12 +96,12 @@ export default function Hero() {
           Making digital things feel a little more human, with details that make them worth remembering.
         </p>
         <div className="flex flex-col gap-3 sm:shrink-0 sm:flex-row sm:gap-4">
-          <a
-            href="#work"
+          <Link
+            href="/work"
             className="rounded-full bg-paper px-8 py-4 text-center font-sans text-sm font-bold uppercase tracking-[0.14em] text-ink transition-transform hover:scale-105"
           >
             See Projects
-          </a>
+          </Link>
           <Link
             href="/contact"
             className="rounded-full border border-paper/40 px-8 py-4 text-center font-sans text-sm font-bold uppercase tracking-[0.14em] text-paper transition hover:scale-105 hover:border-paper"
