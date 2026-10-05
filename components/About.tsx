@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -7,6 +8,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
+
+const skills: { label: string; icon?: string }[] = [
+  { label: "HTML", icon: "/images/icons/html5.svg" },
+  { label: "CSS", icon: "/images/icons/css3.svg" },
+  { label: "Adobe Photoshop" },
+  { label: "Adobe Illustrator" },
+  { label: "Animation" },
+];
 
 const facts = [
   {
@@ -63,6 +72,25 @@ export default function About() {
           figure out about the technology that we have and then there are the newest
           technologies coming out all the time that just pique my interest.
         </p>
+
+        <div className="about-reveal mt-12 sm:mt-14">
+          <h3 className="font-sans text-lg font-bold uppercase tracking-[0.2em] text-ink/60">
+            Skills
+          </h3>
+          <ul className="mt-4 flex flex-wrap gap-3">
+            {skills.map((skill) => (
+              <li
+                key={skill.label}
+                className="flex items-center gap-3 rounded-lg bg-ink/[0.07] px-5 py-3.5 font-sans text-base font-bold uppercase tracking-[0.14em] text-ink md:px-6 md:py-4 md:text-lg"
+              >
+                {skill.icon && (
+                  <Image src={skill.icon} alt="" width={28} height={28} className="h-6 w-6 md:h-7 md:w-7" />
+                )}
+                {skill.label}
+              </li>
+            ))}
+          </ul>
+        </div>
 
         <div className="mt-16 grid gap-10 border-t border-ink/15 pt-10 sm:mt-20 sm:pt-12 md:grid-cols-3 md:gap-8">
           {facts.map((fact, i) => (

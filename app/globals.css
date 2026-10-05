@@ -78,9 +78,3 @@ body {
   mix-blend-mode: overlay;
   opacity: 0.85;
 }
-
-.marquee-track {
-  display: flex;
-  width: max-content;
-  will-change: transform;
-}
