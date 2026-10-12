@@ -128,9 +128,12 @@ export default function ProjectsList() {
             onBlur={handleLeave}
             onClick={() => setOpenIndex(i)}
             onKeyDown={(e) => {
-              if (e.key === "Enter" || e.key === " ") setOpenIndex(i);
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setOpenIndex(i);
+              }
             }}
-            className="group flex cursor-pointer flex-col gap-4 border-b border-paper/15 py-6 outline-none transition-colors md:flex-row md:items-center md:gap-8 md:py-8 hover:bg-paper/[0.03] focus-visible:bg-paper/[0.03]"
+            className="group flex cursor-pointer flex-col gap-4 border-b border-paper/15 py-6 outline-none transition-colors md:flex-row md:items-center md:gap-8 md:py-8 hover:bg-paper/[0.03] focus-visible:bg-paper/[0.03] focus-visible:-outline-offset-2 focus-visible:outline-paper"
           >
             <span className="font-sans text-sm text-paper/60 md:w-12">{project.index}</span>
 

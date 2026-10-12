@@ -14,6 +14,38 @@ const links = [
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+        return;
+      }
+      if (e.key === "Tab") {
+        const items = [
+          ...Array.from(headerRef.current?.querySelectorAll<HTMLElement>("a, button") ?? []),
+          ...Array.from(panelRef.current?.querySelectorAll<HTMLElement>("a") ?? []),
+        ];
+        if (items.length === 0) return;
+        const first = items[0];
+        const last = items[items.length - 1];
+        const active = document.activeElement;
+        if (e.shiftKey && active === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && active === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
 
   useEffect(() => {
     if (!panelRef.current) return;
@@ -43,7 +75,10 @@ export default function Nav() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-start justify-between p-4 md:p-6 pointer-events-none">
+      <header
+        ref={headerRef}
+        className="fixed top-0 left-0 right-0 z-50 flex items-start justify-between p-4 md:p-6 pointer-events-none"
+      >
         <Link
           href="/"
           aria-label="Romeo Culp — home"
@@ -61,7 +96,10 @@ export default function Nav() {
         </Link>
 
         <button
+          ref={toggleRef}
           type="button"
+          aria-expanded={open}
+          aria-controls="site-menu"
           onClick={() => setOpen((v) => !v)}
           className="pointer-events-auto flex items-center gap-2 rounded-full border border-paper/25 bg-ink/60 backdrop-blur px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-paper transition-colors hover:border-paper/60"
         >
@@ -88,19 +126,22 @@ export default function Nav() {
 
       <div
         ref={panelRef}
+        id="site-menu"
         className="fixed inset-0 z-40 hidden flex-col items-center justify-center gap-6 bg-ink text-paper"
         style={{ display: "none" }}
       >
-        {links.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            onClick={() => setOpen(false)}
-            className="menu-link font-display text-5xl sm:text-6xl uppercase tracking-tight hover:italic hover:text-bone transition-colors"
-          >
-            {link.label}
-          </Link>
-        ))}
+        <nav aria-label="Primary" className="flex flex-col items-center gap-6">
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className="menu-link font-display text-5xl sm:text-6xl uppercase tracking-tight hover:italic hover:text-bone transition-colors"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
         <span className="mt-8 font-serif text-paper/60">romeoculp@icloud.com</span>
       </div>
     </>

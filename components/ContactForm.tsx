@@ -18,6 +18,11 @@ export default function ContactForm() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<Status>("idle");
+  const successRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (status === "success") successRef.current?.focus();
+  }, [status]);
 
   useEffect(() => {
     if (!sectionRef.current) return;
@@ -43,6 +48,7 @@ export default function ContactForm() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    if (status === "sending") return;
     setStatus("sending");
 
     try {
@@ -90,7 +96,12 @@ export default function ContactForm() {
         </p>
 
         {status === "success" ? (
-          <div className="contact-form-reveal mt-14 border-t border-ink/15 pt-8">
+          <div
+            ref={successRef}
+            tabIndex={-1}
+            role="status"
+            className="contact-form-reveal mt-14 border-t border-ink/15 pt-8 outline-none"
+          >
             <p className="font-display text-3xl uppercase">Got it.</p>
             <p className="mt-3 max-w-sm font-serif text-ink/60">
               Thanks for reaching out — I'll get back to you soon.
@@ -111,11 +122,13 @@ export default function ContactForm() {
               </span>
               <input
                 type="text"
+                name="name"
+                autoComplete="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
                 placeholder="Your name"
-                className="border-b border-ink/20 bg-transparent py-3 font-sans text-lg text-ink placeholder:text-ink/30 outline-none transition-colors focus:border-ink"
+                className="border-b border-ink/50 bg-transparent py-3 font-sans text-lg text-ink placeholder:text-ink/60 outline-none transition-colors focus:border-ink focus:shadow-[0_1px_0_0_theme(colors.ink)]"
               />
             </label>
 
@@ -125,11 +138,13 @@ export default function ContactForm() {
               </span>
               <input
                 type="email"
+                name="email"
+                autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 placeholder="you@example.com"
-                className="border-b border-ink/20 bg-transparent py-3 font-sans text-lg text-ink placeholder:text-ink/30 outline-none transition-colors focus:border-ink"
+                className="border-b border-ink/50 bg-transparent py-3 font-sans text-lg text-ink placeholder:text-ink/60 outline-none transition-colors focus:border-ink focus:shadow-[0_1px_0_0_theme(colors.ink)]"
               />
             </label>
 
@@ -138,12 +153,13 @@ export default function ContactForm() {
                 Message
               </span>
               <textarea
+                name="message"
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 required
                 rows={5}
                 placeholder="What's on your mind?"
-                className="resize-none border-b border-ink/20 bg-transparent py-3 font-sans text-lg text-ink placeholder:text-ink/30 outline-none transition-colors focus:border-ink"
+                className="resize-none border-b border-ink/50 bg-transparent py-3 font-sans text-lg text-ink placeholder:text-ink/60 outline-none transition-colors focus:border-ink focus:shadow-[0_1px_0_0_theme(colors.ink)]"
               />
             </label>
 
@@ -152,18 +168,18 @@ export default function ContactForm() {
             <div className="flex items-center gap-5">
               <button
                 type="submit"
-                disabled={status === "sending"}
-                className="w-fit rounded-full bg-ink px-8 py-4 font-sans text-sm font-bold uppercase tracking-[0.14em] text-paper transition-transform hover:-translate-y-0.5 disabled:opacity-50 disabled:hover:translate-y-0"
+                aria-disabled={status === "sending"}
+                className="w-fit rounded-full bg-ink px-8 py-4 font-sans text-sm font-bold uppercase tracking-[0.14em] text-paper transition-transform hover:-translate-y-0.5 aria-disabled:opacity-50 aria-disabled:hover:translate-y-0"
               >
                 {status === "sending" ? "Sending..." : "Send Message"}
               </button>
               {status === "error" && (
-                <p className="font-sans text-xs uppercase tracking-[0.15em] text-red-700">
+                <p role="alert" className="font-sans text-xs uppercase tracking-[0.15em] text-red-700">
                   Something went wrong — try again?
                 </p>
               )}
               {status === "blocked" && (
-                <p className="max-w-[220px] font-sans text-xs uppercase tracking-[0.15em] text-red-700">
+                <p role="alert" className="max-w-[220px] font-sans text-xs uppercase tracking-[0.15em] text-red-700">
                   Request blocked — try disabling your ad blocker, or email me directly below.
                 </p>
               )}

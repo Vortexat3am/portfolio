@@ -20,6 +20,8 @@ export default function ProjectLightbox({
 }) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const openerRef = useRef<HTMLElement | null>(null);
   const isOpen = openIndex !== null;
   const project = isOpen ? projects[openIndex] : null;
 
@@ -49,8 +51,10 @@ export default function ProjectLightbox({
     if (!overlayRef.current || !cardRef.current) return;
 
     if (isOpen) {
+      openerRef.current = document.activeElement as HTMLElement | null;
       document.body.style.overflow = "hidden";
       gsap.set(overlayRef.current, { display: "flex" });
+      closeBtnRef.current?.focus({ preventScroll: true });
       gsap.fromTo(overlayRef.current, { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "power2.out" });
       gsap.fromTo(
         cardRef.current,
@@ -59,6 +63,8 @@ export default function ProjectLightbox({
       );
     } else if (overlayRef.current.style.display !== "none") {
       document.body.style.overflow = "";
+      openerRef.current?.focus({ preventScroll: true });
+      openerRef.current = null;
       gsap.to(cardRef.current, { opacity: 0, y: 16, scale: 0.97, duration: 0.25, ease: "power2.in" });
       gsap.to(overlayRef.current, {
         opacity: 0,
@@ -75,6 +81,25 @@ export default function ProjectLightbox({
       if (e.key === "Escape") onClose();
       if (e.key === "ArrowRight") onNavigate(1);
       if (e.key === "ArrowLeft") onNavigate(-1);
+      if (e.key === "Tab" && overlayRef.current) {
+        const focusable = Array.from(
+          overlayRef.current.querySelectorAll<HTMLElement>("button, a[href]")
+        );
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        const active = document.activeElement;
+        if (!overlayRef.current.contains(active)) {
+          e.preventDefault();
+          first.focus();
+        } else if (e.shiftKey && active === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && active === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     }
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -85,11 +110,15 @@ export default function ProjectLightbox({
       ref={overlayRef}
       className="fixed inset-0 z-[60] hidden items-center justify-center p-4 sm:p-8"
       style={{ display: "none" }}
+      role="dialog"
+      aria-modal="true"
+      aria-label={project ? `${project.title} — project details` : "Project details"}
       aria-hidden={!isOpen}
     >
       <div className="absolute inset-0 bg-ink/92 backdrop-blur-md" onClick={onClose} />
 
       <button
+        ref={closeBtnRef}
         type="button"
         onClick={onClose}
         aria-label="Close"

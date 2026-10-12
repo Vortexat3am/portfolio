@@ -65,9 +65,12 @@ export default function WorkGrid() {
               tabIndex={0}
               onClick={() => setOpenIndex(i)}
               onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") setOpenIndex(i);
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setOpenIndex(i);
+                }
               }}
-              className="work-reveal group flex cursor-pointer flex-col rounded-2xl border border-paper/15 bg-paper/[0.03] p-4 outline-none transition-colors duration-300 hover:border-paper/35 hover:bg-paper/[0.06] sm:p-5"
+              className="work-reveal group flex cursor-pointer flex-col rounded-2xl border border-paper/15 bg-paper/[0.03] p-4 outline-none transition-colors duration-300 hover:border-paper/35 hover:bg-paper/[0.06] focus-visible:outline-paper sm:p-5"
             >
               <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-paper/15 bg-paper/5">
                 <Image
