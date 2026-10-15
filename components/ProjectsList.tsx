@@ -98,7 +98,7 @@ export default function ProjectsList() {
         </div>
         <div className="max-w-xs">
           <p className="font-serif text-paper/50">
-            Six pieces — a live concept build and a run of photo-edited chaos. Click a title to dive in.
+            Four pieces — a live concept build, two halftone illustrations, and an original brand identity.
           </p>
           <Link
             href="/work"

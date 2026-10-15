@@ -27,14 +27,14 @@ export default function ContactHero() {
 
   return (
     <section ref={sectionRef} className="relative flex min-h-[65svh] w-full flex-col justify-center overflow-hidden bg-ink px-5 pt-32 pb-16 text-paper md:px-10">
-      <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
-        <div className="absolute inset-0 opacity-[0.4] mix-blend-screen [mask-image:linear-gradient(to_right,transparent_0%,transparent_25%,black_55%)]">
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="absolute inset-y-8 right-0 w-full opacity-[0.2] mix-blend-screen md:inset-y-12 md:w-[60%] md:opacity-[0.5] lg:opacity-[0.8] [mask-image:radial-gradient(ellipse_60%_70%_at_72%_50%,black_40%,transparent_100%)]">
           <Image
-            src="/images/projects/DragonBallGFX.webp"
-            alt="Dragon Ball fan art poster, decorative background accent"
+            src="/images/projects/EyeHeartGFX.png"
+            alt="Halftone illustration of an eye with a heart for a pupil, decorative background accent"
             fill
-            sizes="100vw"
-            className="object-cover object-right blur-[1px]"
+            sizes="(max-width: 768px) 100vw, 60vw"
+            className="object-contain object-right [filter:contrast(1.5)_hue-rotate(180deg)_invert(1)_saturate(4)_brightness(0.85)]"
           />
         </div>
       </div>

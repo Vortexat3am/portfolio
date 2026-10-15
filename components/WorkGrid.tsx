@@ -54,10 +54,10 @@ export default function WorkGrid() {
           All Work
         </h1>
         <p className="work-reveal mt-6 max-w-xl font-serif text-lg text-paper/60">
-          Every project so far, laid out in full — concept builds, fan art, and brand explorations. Click any piece to dive in.
+          Every project so far, laid out in full — a concept build, illustration, and brand identity work.
         </p>
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 sm:gap-8 md:mt-20">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 md:mt-20">
           {projects.map((project, i) => (
             <div
               key={project.id}
@@ -70,28 +70,31 @@ export default function WorkGrid() {
                   setOpenIndex(i);
                 }
               }}
-              className="work-reveal group flex cursor-pointer flex-col rounded-2xl border border-paper/15 bg-paper/[0.03] p-4 outline-none transition-colors duration-300 hover:border-paper/35 hover:bg-paper/[0.06] focus-visible:outline-paper sm:p-5"
+              className="work-reveal group relative block aspect-[4/5] cursor-pointer overflow-hidden rounded-2xl border border-paper/15 bg-[#161616] outline-none focus-visible:outline-paper sm:aspect-[3/4] lg:aspect-[4/3]"
             >
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-paper/15 bg-paper/5">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 640px) 100vw, 50vw"
-                  className="object-cover transition duration-500 group-hover:scale-105"
-                />
-              </div>
-              <div className="mt-5">
-                <p className="font-sans text-xs uppercase tracking-[0.2em] text-paper/60">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                sizes="(max-width: 640px) 100vw, 50vw"
+                className="object-cover transition duration-500 group-hover:scale-105 group-focus-visible:scale-105"
+                style={{ objectPosition: project.imagePosition }}
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/70 via-[34%] to-transparent to-[64%]"
+              />
+              <div className="absolute inset-x-0 bottom-0 p-6 lg:p-8">
+                <p className="font-sans text-xs uppercase tracking-[0.2em] text-paper/80">
                   {project.index} — {project.category}
                 </p>
-                <h2 className="mt-1 font-display text-3xl uppercase leading-none transition-all duration-300 group-hover:italic sm:text-4xl">
+                <h2 className="mt-1.5 font-display text-3xl uppercase leading-none sm:text-4xl lg:text-5xl">
                   {project.title}
                 </h2>
+                <p className="line-clamp-3 max-h-0 overflow-hidden font-sans text-sm leading-normal text-paper/85 opacity-0 transition-all duration-300 group-hover:mt-2.5 group-hover:max-h-[72px] group-hover:opacity-100 group-focus-visible:mt-2.5 group-focus-visible:max-h-[72px] group-focus-visible:opacity-100">
+                  {project.blurb}
+                </p>
               </div>
-              <p className="mt-3 line-clamp-4 max-w-md font-serif text-sm leading-relaxed text-paper/60 sm:text-base">
-                {project.blurb}
-              </p>
             </div>
           ))}
         </div>
