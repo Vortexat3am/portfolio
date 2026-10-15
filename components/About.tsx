@@ -62,7 +62,7 @@ export default function About() {
 
   return (
     <section id="about" ref={sectionRef} className="relative bg-paper px-5 py-24 text-ink md:px-10 md:py-32 lg:px-14">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-6xl 2xl:max-w-[1400px]">
         <p className="about-reveal mb-6 font-sans text-base font-bold uppercase tracking-[0.3em] text-ink/60 sm:mb-8 sm:text-lg">
           About
         </p>

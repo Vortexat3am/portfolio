@@ -88,7 +88,7 @@ export default function ProjectsList() {
 
   return (
     <section id="work" className="relative bg-ink px-5 py-24 md:px-10 md:py-32 lg:px-14">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-6xl 2xl:max-w-[1400px]">
       <div className="mb-14 flex flex-col gap-4 md:mb-20 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="mb-4 font-sans text-base font-bold uppercase tracking-[0.3em] text-paper/60 sm:text-lg">

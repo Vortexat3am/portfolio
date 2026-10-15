@@ -46,7 +46,7 @@ export default function WorkGrid() {
       ref={sectionRef}
       className="relative bg-ink px-5 pt-32 pb-24 text-paper md:px-10 md:pb-32 lg:px-14"
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-6xl 2xl:max-w-[1400px]">
         <p className="work-reveal mb-4 font-sans text-base font-bold uppercase tracking-[0.3em] text-paper/60 sm:text-lg">
           Full Archive
         </p>

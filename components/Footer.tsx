@@ -9,7 +9,7 @@ const socials = [
 export default function Footer() {
   return (
     <footer className="relative bg-ink px-5 pb-8 pt-24 text-paper md:px-10 md:pt-32 lg:px-14">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-6xl 2xl:max-w-[1400px]">
         <div className="flex flex-col items-start justify-between gap-10 border-b border-paper/15 pb-16 md:flex-row md:items-end">
           <h2 className="font-display text-[14vw] uppercase leading-[1.05] tracking-wider sm:text-[10vw] lg:text-[6.5vw] xl:text-[88px]">
             Let's build

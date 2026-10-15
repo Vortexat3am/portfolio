@@ -20,7 +20,7 @@ export default function ContactPage() {
       <ContactForm />
       <ContactLinks />
       <footer className="bg-ink px-5 pb-10 text-paper md:px-10 lg:px-14">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mx-auto flex max-w-6xl flex-col 2xl:max-w-[1400px] gap-4 sm:flex-row sm:items-center sm:justify-between">
           <Link
             href="/"
             data-cursor="link"

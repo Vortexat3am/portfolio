@@ -84,15 +84,15 @@ export default function ContactForm() {
 
   return (
     <section ref={sectionRef} className="bg-paper px-5 py-28 text-ink md:px-10 md:py-36 lg:px-14">
-      <div className="mx-auto max-w-6xl">
-      <div className="max-w-2xl">
+      <div className="mx-auto max-w-6xl 2xl:max-w-[1400px]">
+      <div className="mx-auto max-w-3xl">
         <p className="contact-form-reveal mb-6 font-sans text-base font-bold uppercase tracking-[0.3em] text-ink/60 sm:text-lg">
           Get In Touch
         </p>
         <h2 className="contact-form-reveal font-display text-[11vw] uppercase leading-[0.95] sm:text-[6vw]">
           Send A Message
         </h2>
-        <p className="contact-form-reveal mt-8 max-w-md font-serif text-lg text-ink/60">
+        <p className="contact-form-reveal mt-8 max-w-lg font-serif text-xl text-ink/60">
           Fill this out and it comes straight to my inbox.
         </p>
 
@@ -103,14 +103,14 @@ export default function ContactForm() {
             role="status"
             className="contact-form-reveal mt-14 border-t border-ink/15 pt-8 outline-none"
           >
-            <p className="font-display text-3xl uppercase">Got it.</p>
-            <p className="mt-3 max-w-sm font-serif text-ink/60">
+            <p className="font-display text-4xl uppercase">Got it.</p>
+            <p className="mt-3 max-w-md font-serif text-xl text-ink/60">
               Thanks for reaching out — I'll get back to you soon.
             </p>
             <button
               type="button"
               onClick={() => setStatus("idle")}
-              className="mt-6 font-sans text-xs font-bold uppercase tracking-[0.2em] text-ink/60 underline underline-offset-4 transition-colors hover:text-ink"
+              className="mt-6 font-sans text-sm font-bold uppercase tracking-[0.2em] text-ink/60 underline underline-offset-4 transition-colors hover:text-ink"
             >
               Send another
             </button>
@@ -118,7 +118,7 @@ export default function ContactForm() {
         ) : (
           <form onSubmit={handleSubmit} className="contact-form-reveal mt-14 flex flex-col gap-8">
             <label className="flex flex-col gap-2">
-              <span className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-ink/60">
+              <span className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-ink/60">
                 Name
               </span>
               <input
@@ -129,12 +129,12 @@ export default function ContactForm() {
                 onChange={(e) => setName(e.target.value)}
                 required
                 placeholder="Your name"
-                className="border-b border-ink/50 bg-transparent py-3 font-sans text-lg text-ink placeholder:text-ink/60 outline-none transition-colors focus:border-ink focus:shadow-[0_1px_0_0_theme(colors.ink)]"
+                className="border-b border-ink/50 bg-transparent py-4 font-sans text-xl text-ink placeholder:text-ink/60 outline-none transition-colors focus:border-ink focus:shadow-[0_1px_0_0_theme(colors.ink)]"
               />
             </label>
 
             <label className="flex flex-col gap-2">
-              <span className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-ink/60">
+              <span className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-ink/60">
                 Email
               </span>
               <input
@@ -145,12 +145,12 @@ export default function ContactForm() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 placeholder="you@example.com"
-                className="border-b border-ink/50 bg-transparent py-3 font-sans text-lg text-ink placeholder:text-ink/60 outline-none transition-colors focus:border-ink focus:shadow-[0_1px_0_0_theme(colors.ink)]"
+                className="border-b border-ink/50 bg-transparent py-4 font-sans text-xl text-ink placeholder:text-ink/60 outline-none transition-colors focus:border-ink focus:shadow-[0_1px_0_0_theme(colors.ink)]"
               />
             </label>
 
             <label className="flex flex-col gap-2">
-              <span className="font-sans text-xs font-bold uppercase tracking-[0.2em] text-ink/60">
+              <span className="font-sans text-sm font-bold uppercase tracking-[0.2em] text-ink/60">
                 Message
               </span>
               <textarea
@@ -160,7 +160,7 @@ export default function ContactForm() {
                 required
                 rows={5}
                 placeholder="What's on your mind?"
-                className="resize-none border-b border-ink/50 bg-transparent py-3 font-sans text-lg text-ink placeholder:text-ink/60 outline-none transition-colors focus:border-ink focus:shadow-[0_1px_0_0_theme(colors.ink)]"
+                className="resize-none border-b border-ink/50 bg-transparent py-4 font-sans text-xl text-ink placeholder:text-ink/60 outline-none transition-colors focus:border-ink focus:shadow-[0_1px_0_0_theme(colors.ink)]"
               />
             </label>
 
@@ -170,17 +170,17 @@ export default function ContactForm() {
               <button
                 type="submit"
                 aria-disabled={status === "sending"}
-                className="w-fit rounded bg-ink px-8 py-4 font-sans text-sm font-bold uppercase tracking-[0.14em] text-paper transition-transform hover:scale-105 aria-disabled:opacity-50 aria-disabled:hover:scale-100"
+                className="w-fit rounded bg-ink px-10 py-5 font-sans text-base font-bold uppercase tracking-[0.14em] text-paper transition-transform hover:scale-105 aria-disabled:opacity-50 aria-disabled:hover:scale-100"
               >
                 {status === "sending" ? "Sending..." : "Send Message"}
               </button>
               {status === "error" && (
-                <p role="alert" className="font-sans text-xs uppercase tracking-[0.15em] text-red-700">
+                <p role="alert" className="font-sans text-sm uppercase tracking-[0.15em] text-red-700">
                   Something went wrong — try again?
                 </p>
               )}
               {status === "blocked" && (
-                <p role="alert" className="max-w-[220px] font-sans text-xs uppercase tracking-[0.15em] text-red-700">
+                <p role="alert" className="max-w-xs font-sans text-sm uppercase tracking-[0.15em] text-red-700">
                   Request blocked — try disabling your ad blocker, or email me directly below.
                 </p>
               )}

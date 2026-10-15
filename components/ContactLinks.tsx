@@ -44,7 +44,7 @@ export default function ContactLinks() {
 
   return (
     <section ref={sectionRef} className="border-t border-paper/10 bg-ink px-5 pb-28 pt-20 text-paper md:px-10 md:pb-32 lg:px-14">
-      <div className="mx-auto max-w-6xl xl:flex xl:gap-12">
+      <div className="mx-auto max-w-6xl xl:flex xl:gap-12 2xl:max-w-[1400px]">
       <div className="max-w-2xl xl:w-[672px] xl:shrink-0">
         <p className="contact-links-reveal mb-8 font-sans text-base font-bold uppercase tracking-[0.3em] text-paper/60 sm:text-lg">
           Find Me Elsewhere

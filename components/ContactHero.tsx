@@ -39,13 +39,13 @@ export default function ContactHero() {
         </div>
       </div>
 
-      <div className="relative mx-auto w-full max-w-6xl">
+      <div className="relative mx-auto w-full max-w-6xl 2xl:max-w-[1400px]">
       <p className="contact-reveal relative mb-4 font-sans text-base font-bold uppercase tracking-[0.3em] text-paper/60 opacity-0 sm:text-lg">
         Say Hello
       </p>
 
       <div ref={headlineRef} className="relative overflow-hidden">
-        <h1 className="font-display uppercase leading-[0.92] text-[16vw] sm:text-[13vw] lg:text-[9vw] 2xl:text-[138px]">
+        <h1 className="font-display uppercase leading-[0.92] text-[16vw] sm:text-[13vw] lg:text-[9vw] 2xl:text-[min(9vw,220px)]">
           <span className="contact-line block overflow-hidden">
             <span className="block">Let's</span>
           </span>
