@@ -14,7 +14,7 @@ export default function NotFound() {
           <Image src="/images/RCLOGO.png" alt="Romeo Culp" width={110} height={110} className="h-auto w-full" priority />
         </div>
 
-        <p className="relative z-10 mb-2 font-sans text-xs uppercase tracking-[0.3em] text-paper/50">
+        <p className="relative z-10 mb-3 font-sans text-base font-bold uppercase tracking-[0.3em] text-paper/60 sm:text-lg">
           404 — Page Not Found
         </p>
         <h1 className="relative z-10 select-none font-display uppercase leading-[0.92] text-[16vw] sm:text-[13vw] md:text-[9.4vw] lg:text-[7.8vw]">
@@ -27,7 +27,7 @@ export default function NotFound() {
         </p>
         <Link
           href="/"
-          className="relative z-10 mt-8 w-fit rounded-full bg-paper px-8 py-4 font-sans text-sm font-bold uppercase tracking-[0.14em] text-ink transition-transform hover:-translate-y-0.5"
+          className="relative z-10 mt-8 w-fit rounded bg-paper px-8 py-4 font-sans text-sm font-bold uppercase tracking-[0.14em] text-ink transition-transform hover:scale-105"
         >
           Back To Home
         </Link>

@@ -44,10 +44,10 @@ export default function WorkGrid() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-ink px-5 pt-32 pb-24 text-paper md:px-10 md:pb-32"
+      className="relative bg-ink px-5 pt-32 pb-24 text-paper md:px-10 md:pb-32 lg:px-14"
     >
       <div className="mx-auto max-w-6xl">
-        <p className="work-reveal mb-3 font-sans text-xs uppercase tracking-[0.3em] text-paper/60">
+        <p className="work-reveal mb-4 font-sans text-base font-bold uppercase tracking-[0.3em] text-paper/60 sm:text-lg">
           Full Archive
         </p>
         <h1 className="work-reveal font-display text-[13vw] uppercase leading-[0.85] sm:text-[9vw] lg:text-[5.5vw]">
@@ -84,6 +84,11 @@ export default function WorkGrid() {
                 aria-hidden="true"
                 className="absolute inset-0 bg-gradient-to-t from-ink/95 via-ink/70 via-[34%] to-transparent to-[64%]"
               />
+              {project.link && (
+                <span className="absolute left-6 top-6 rounded bg-paper px-3 py-1 font-sans text-xs font-bold uppercase tracking-[0.16em] text-ink lg:left-8 lg:top-8">
+                  Live site
+                </span>
+              )}
               <div className="absolute inset-x-0 bottom-0 p-6 lg:p-8">
                 <p className="font-sans text-xs uppercase tracking-[0.2em] text-paper/80">
                   {project.index} — {project.category}

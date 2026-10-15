@@ -101,7 +101,7 @@ export default function Nav() {
           aria-expanded={open}
           aria-controls="site-menu"
           onClick={() => setOpen((v) => !v)}
-          className="pointer-events-auto flex items-center gap-2 rounded-full border border-paper/25 bg-ink/60 backdrop-blur px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-paper transition-colors hover:border-paper/60"
+          className="pointer-events-auto flex items-center gap-2 rounded border border-paper/25 bg-ink/60 backdrop-blur px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.14em] text-paper transition-colors hover:border-paper/60"
         >
           {open ? "Close" : "Menu"}
           <span className="relative flex h-3 w-4 flex-col justify-between">

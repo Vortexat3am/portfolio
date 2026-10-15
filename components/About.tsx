@@ -12,6 +12,9 @@ if (typeof window !== "undefined") {
 const skills: { label: string; icon?: string }[] = [
   { label: "HTML", icon: "/images/icons/html5.svg" },
   { label: "CSS", icon: "/images/icons/css3.svg" },
+  { label: "React", icon: "/images/icons/react.svg" },
+  { label: "Next.js", icon: "/images/icons/nextjs.svg" },
+  { label: "Tailwind CSS", icon: "/images/icons/tailwindcss.svg" },
   { label: "Adobe Photoshop" },
   { label: "Adobe Illustrator" },
   { label: "Animation" },

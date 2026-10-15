@@ -26,7 +26,7 @@ export default function ContactHero() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="relative flex min-h-[65svh] w-full flex-col justify-center overflow-hidden bg-ink px-5 pt-32 pb-16 text-paper md:px-10">
+    <section ref={sectionRef} className="relative flex min-h-[65svh] w-full flex-col justify-center overflow-hidden bg-ink px-5 pt-32 pb-16 text-paper md:px-10 lg:px-14">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute inset-y-8 right-0 w-full opacity-[0.2] mix-blend-screen md:inset-y-12 md:w-[60%] md:opacity-[0.5] lg:opacity-[0.8] [mask-image:radial-gradient(ellipse_60%_70%_at_72%_50%,black_40%,transparent_100%)]">
           <Image
@@ -39,12 +39,13 @@ export default function ContactHero() {
         </div>
       </div>
 
-      <p className="contact-reveal relative mb-4 font-sans text-xs uppercase tracking-[0.3em] text-paper/50 opacity-0">
+      <div className="relative mx-auto w-full max-w-6xl">
+      <p className="contact-reveal relative mb-4 font-sans text-base font-bold uppercase tracking-[0.3em] text-paper/60 opacity-0 sm:text-lg">
         Say Hello
       </p>
 
       <div ref={headlineRef} className="relative overflow-hidden">
-        <h1 className="font-display uppercase leading-[0.92] text-[16vw] sm:text-[13vw] lg:text-[9vw]">
+        <h1 className="font-display uppercase leading-[0.92] text-[16vw] sm:text-[13vw] lg:text-[9vw] 2xl:text-[138px]">
           <span className="contact-line block overflow-hidden">
             <span className="block">Let's</span>
           </span>
@@ -60,6 +61,7 @@ export default function ContactHero() {
       <p className="contact-reveal mt-8 max-w-lg font-serif text-lg text-paper/60 opacity-0">
         Got a project, a collab, or just want to talk shop? Drop the details below.
       </p>
+      </div>
     </section>
   );
 }

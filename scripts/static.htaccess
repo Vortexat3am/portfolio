@@ -1,0 +1,14 @@
+# Used by Apache and LiteSpeed hosts (most cPanel hosting). Other servers ignore this file.
+
+# Show the site's own 404 page for missing URLs.
+ErrorDocument 404 /404.html
+
+# Tell browsers to always use HTTPS for this site.
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+</IfModule>
+
+# The social-preview image is exported without a file extension; serve it as a PNG.
+<Files "opengraph-image">
+  ForceType image/png
+</Files>

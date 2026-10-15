@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { projects } from "@/lib/projects";
 import ProjectLightbox from "@/components/ProjectLightbox";
+import ArrowIcon from "@/components/ArrowIcon";
 
 export default function ProjectsList() {
   const listRef = useRef<HTMLDivElement>(null);
@@ -86,10 +87,11 @@ export default function ProjectsList() {
   }
 
   return (
-    <section id="work" className="relative bg-ink px-5 py-24 md:px-10 md:py-32">
+    <section id="work" className="relative bg-ink px-5 py-24 md:px-10 md:py-32 lg:px-14">
+      <div className="mx-auto max-w-6xl">
       <div className="mb-14 flex flex-col gap-4 md:mb-20 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="mb-3 font-sans text-xs uppercase tracking-[0.3em] text-paper/60">
+          <p className="mb-4 font-sans text-base font-bold uppercase tracking-[0.3em] text-paper/60 sm:text-lg">
             Selected Work
           </p>
           <h2 className="font-display text-[13vw] uppercase leading-[0.85] text-paper sm:text-[9vw] lg:text-[5.5vw]">
@@ -102,9 +104,10 @@ export default function ProjectsList() {
           </p>
           <Link
             href="/work"
-            className="mt-6 inline-flex w-fit items-center gap-2 rounded-full border border-paper/40 px-5 py-2.5 font-sans text-xs font-bold uppercase tracking-[0.2em] text-paper transition hover:scale-105 hover:border-paper"
+            className="mt-6 inline-flex w-fit items-center gap-2 rounded border border-paper/40 px-5 py-2.5 font-sans text-xs font-bold uppercase tracking-[0.2em] text-paper transition hover:scale-105 hover:border-paper"
           >
-            View All Projects →
+            View All Projects
+            <ArrowIcon direction="right" />
           </Link>
         </div>
       </div>
@@ -148,15 +151,23 @@ export default function ProjectsList() {
               />
             </div>
 
-            <span className="font-display text-4xl uppercase text-paper transition-all duration-300 group-hover:italic group-hover:tracking-wide sm:text-5xl md:flex-1 md:text-6xl">
-              {project.title}
-            </span>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 md:flex-1">
+              <span className="font-display text-4xl uppercase text-paper transition-all duration-300 group-hover:italic group-hover:tracking-wide sm:text-5xl md:text-6xl">
+                {project.title}
+              </span>
+              {project.link && (
+                <span className="rounded bg-paper px-3 py-1 font-sans text-xs font-bold uppercase tracking-[0.16em] text-ink">
+                  Live site
+                </span>
+              )}
+            </div>
 
             <span className="font-sans text-xs uppercase tracking-[0.2em] text-paper/60 md:text-right">
               {project.category}
             </span>
           </div>
         ))}
+      </div>
       </div>
 
       {/* Warms every thumbnail at the exact size/URL the hover preview below

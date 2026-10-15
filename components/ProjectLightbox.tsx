@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import type { Project } from "@/lib/projects";
+import ArrowIcon from "@/components/ArrowIcon";
 
 const IMAGE_SIZES = "(max-width: 768px) 90vw, 700px";
 
@@ -122,7 +123,7 @@ export default function ProjectLightbox({
         type="button"
         onClick={onClose}
         aria-label="Close"
-        className="fixed right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-paper/40 bg-ink text-paper transition hover:scale-105 hover:border-paper sm:right-8 sm:top-8"
+        className="fixed right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded border border-paper/40 bg-ink text-paper transition hover:scale-105 hover:border-paper sm:right-8 sm:top-8"
       >
         ×
       </button>
@@ -173,9 +174,10 @@ export default function ProjectLightbox({
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 rounded-full bg-paper px-5 py-3 font-sans text-xs font-bold uppercase tracking-[0.2em] text-ink transition-transform hover:-translate-y-0.5"
+                className="mt-6 inline-flex items-center gap-2 rounded bg-paper px-5 py-3 font-sans text-xs font-bold uppercase tracking-[0.2em] text-ink transition-transform hover:scale-105"
               >
-                Visit Live Site ↗
+                Visit Live Site
+                <ArrowIcon direction="up-right" />
               </a>
             )}
           </div>
@@ -184,9 +186,10 @@ export default function ProjectLightbox({
             <button
               type="button"
               onClick={() => onNavigate(-1)}
-              className="rounded-full border border-paper/40 px-4 py-2 font-sans text-xs uppercase tracking-[0.2em] text-paper/70 transition hover:scale-105 hover:border-paper hover:text-paper"
+              className="inline-flex items-center gap-2 rounded border border-paper/40 px-4 py-2 font-sans text-xs uppercase tracking-[0.2em] text-paper/70 transition hover:scale-105 hover:border-paper hover:text-paper"
             >
-              ← Prev
+              <ArrowIcon direction="left" />
+              Prev
             </button>
             <span className="font-sans text-xs text-paper/60">
               {isOpen ? `${(openIndex ?? 0) + 1} / ${projects.length}` : ""}
@@ -194,9 +197,10 @@ export default function ProjectLightbox({
             <button
               type="button"
               onClick={() => onNavigate(1)}
-              className="rounded-full border border-paper/40 px-4 py-2 font-sans text-xs uppercase tracking-[0.2em] text-paper/70 transition hover:scale-105 hover:border-paper hover:text-paper"
+              className="inline-flex items-center gap-2 rounded border border-paper/40 px-4 py-2 font-sans text-xs uppercase tracking-[0.2em] text-paper/70 transition hover:scale-105 hover:border-paper hover:text-paper"
             >
-              Next →
+              Next
+              <ArrowIcon direction="right" />
             </button>
           </div>
         </div>

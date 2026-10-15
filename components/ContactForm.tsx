@@ -83,9 +83,10 @@ export default function ContactForm() {
   }
 
   return (
-    <section ref={sectionRef} className="bg-paper px-5 py-28 text-ink md:px-10 md:py-36">
-      <div className="mx-auto max-w-2xl">
-        <p className="contact-form-reveal mb-6 font-sans text-xs font-bold uppercase tracking-[0.3em] text-ink/60">
+    <section ref={sectionRef} className="bg-paper px-5 py-28 text-ink md:px-10 md:py-36 lg:px-14">
+      <div className="mx-auto max-w-6xl">
+      <div className="max-w-2xl">
+        <p className="contact-form-reveal mb-6 font-sans text-base font-bold uppercase tracking-[0.3em] text-ink/60 sm:text-lg">
           Get In Touch
         </p>
         <h2 className="contact-form-reveal font-display text-[11vw] uppercase leading-[0.95] sm:text-[6vw]">
@@ -169,7 +170,7 @@ export default function ContactForm() {
               <button
                 type="submit"
                 aria-disabled={status === "sending"}
-                className="w-fit rounded-full bg-ink px-8 py-4 font-sans text-sm font-bold uppercase tracking-[0.14em] text-paper transition-transform hover:-translate-y-0.5 aria-disabled:opacity-50 aria-disabled:hover:translate-y-0"
+                className="w-fit rounded bg-ink px-8 py-4 font-sans text-sm font-bold uppercase tracking-[0.14em] text-paper transition-transform hover:scale-105 aria-disabled:opacity-50 aria-disabled:hover:scale-100"
               >
                 {status === "sending" ? "Sending..." : "Send Message"}
               </button>
@@ -186,6 +187,7 @@ export default function ContactForm() {
             </div>
           </form>
         )}
+      </div>
       </div>
     </section>
   );

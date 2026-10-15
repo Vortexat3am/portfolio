@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import WaveDecoration from "@/components/WaveDecoration";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -42,9 +43,10 @@ export default function ContactLinks() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="border-t border-paper/10 bg-ink px-5 pb-28 pt-20 text-paper md:px-10 md:pb-32">
-      <div className="mx-auto max-w-2xl">
-        <p className="contact-links-reveal mb-8 font-sans text-xs font-bold uppercase tracking-[0.3em] text-paper/60">
+    <section ref={sectionRef} className="border-t border-paper/10 bg-ink px-5 pb-28 pt-20 text-paper md:px-10 md:pb-32 lg:px-14">
+      <div className="mx-auto max-w-6xl xl:flex xl:gap-12">
+      <div className="max-w-2xl xl:w-[672px] xl:shrink-0">
+        <p className="contact-links-reveal mb-8 font-sans text-base font-bold uppercase tracking-[0.3em] text-paper/60 sm:text-lg">
           Find Me Elsewhere
         </p>
         <div className="contact-links-reveal flex flex-col gap-1">
@@ -65,6 +67,10 @@ export default function ContactLinks() {
             </a>
           ))}
         </div>
+      </div>
+      <div className="contact-links-reveal hidden flex-1 items-center justify-center xl:flex">
+        <WaveDecoration />
+      </div>
       </div>
     </section>
   );

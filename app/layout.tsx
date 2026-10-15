@@ -74,7 +74,7 @@ export default function RootLayout({
           <Nav />
           {children}
         </SmoothScroll>
-        <Analytics />
+        {process.env.STATIC_EXPORT !== "true" && <Analytics />}
       </body>
     </html>
   );

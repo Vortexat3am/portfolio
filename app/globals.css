@@ -78,3 +78,24 @@ body {
   mix-blend-mode: overlay;
   opacity: 0.85;
 }
+
+/* decorative wave lines: drift exactly one wavelength so the loop is seamless */
+@keyframes wave-drift {
+  from {
+    transform: translate(var(--wave-x), var(--wave-y));
+  }
+  to {
+    transform: translate(calc(var(--wave-x) - 216px), var(--wave-y));
+  }
+}
+
+.wave-line {
+  transform: translate(var(--wave-x), var(--wave-y));
+  animation: wave-drift 14s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wave-line {
+    animation: none;
+  }
+}
