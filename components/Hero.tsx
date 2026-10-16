@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { gsap } from "gsap";
 
-const lines = ["WEB", "DEVELOPMENT &", "DIGITAL ART"];
+const lines = ["WEB DEVELOPMENT &", "DIGITAL ART"];
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -52,30 +52,29 @@ export default function Hero() {
       className="relative flex min-h-[100svh] w-full flex-col justify-center overflow-hidden bg-ink px-5 pt-32 pb-16 md:px-10 lg:px-14"
     >
       <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
-        <div className="absolute -right-[8%] -bottom-[12%] h-[80%] w-[70%] opacity-[0.22] mix-blend-screen [mask-image:radial-gradient(ellipse_at_center,black_0%,transparent_68%)] sm:h-[90%]">
+        <div className="absolute left-1/2 top-[54%] h-[85%] w-[135%] -translate-x-1/2 -translate-y-1/2 opacity-[0.3] mix-blend-screen [mask-image:radial-gradient(ellipse_50%_50%_at_center,black_0%,transparent_100%)] md:h-[92%] md:w-[75%] md:opacity-[0.34]">
           <Image
             src="/images/projects/FallingintoEyeGFX.png"
             alt="Grainy monochrome illustration of an eye, decorative background accent"
             fill
-            sizes="70vw"
+            sizes="(max-width: 768px) 135vw, 75vw"
             className="object-cover grayscale blur-[1px]"
           />
         </div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_25%_35%,rgba(243,241,234,0.08),transparent_55%)]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent via-[40%] to-ink/40" />
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl 2xl:max-w-[1400px]">
-      <div className="hero-tag relative z-10 mb-2 inline-flex w-fit -rotate-2 items-center gap-2 self-start rounded-md border border-paper/25 bg-paper px-4 py-2 opacity-0 sm:mb-4 2xl:px-5 2xl:py-2.5">
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col items-center text-center 2xl:max-w-[1400px]">
+      <div className="hero-tag relative z-10 mb-2 inline-flex w-fit -rotate-2 items-center gap-2 rounded-md border border-paper/25 bg-paper px-4 py-2 opacity-0 sm:mb-4 2xl:px-5 2xl:py-2.5">
         <span className="font-sans text-xs font-bold uppercase tracking-[0.1em] text-ink sm:text-sm 2xl:text-base">
           Hey, I&rsquo;m Romeo.
         </span>
       </div>
 
-      <h1 className="relative z-10 select-none font-display uppercase leading-[1.08] text-[16vw] sm:text-[13vw] md:text-[9.4vw] lg:text-[7.8vw] 2xl:text-[min(9vw,220px)]">
+      <h1 className="relative z-10 select-none font-display uppercase leading-[1.08] text-[13.5vw] sm:text-[10.5vw] xl:text-[min(10.5vw,144px)] 2xl:text-[min(10.5vw,176px)]">
         {lines.map((line, i) => (
           <span key={i} className="relative block overflow-hidden">
-            <span className="hero-line-back block text-paper/45" aria-hidden="true">
+            <span className="hero-line-back block text-paper/70" aria-hidden="true">
               {line}
             </span>
             <span
@@ -92,11 +91,11 @@ export default function Hero() {
         <span className="sr-only">Web development &amp; digital art</span>
       </h1>
 
-      <div className="hero-sub relative z-10 mt-8 flex flex-col gap-6 opacity-0 sm:flex-row sm:items-end sm:justify-between 2xl:mt-12">
-        <p className="max-w-sm font-serif text-lg text-paper/60 2xl:max-w-lg 2xl:text-2xl">
+      <div className="hero-sub relative z-10 mt-8 flex flex-col items-center gap-8 opacity-0 2xl:mt-12">
+        <p className="max-w-sm font-serif text-lg text-paper/75 sm:max-w-md 2xl:max-w-[620px] 2xl:text-2xl">
           Making digital things feel a little more human, with details that make them worth remembering.
         </p>
-        <div className="flex flex-col gap-3 sm:shrink-0 sm:flex-row sm:gap-4">
+        <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
           <Link
             href="/work"
             className="rounded bg-paper px-8 py-4 text-center font-sans text-sm font-bold uppercase tracking-[0.14em] text-ink transition-transform hover:scale-105 2xl:px-10 2xl:py-5 2xl:text-base"
