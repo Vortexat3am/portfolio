@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 
 const TITLE = "Work — Romeo Culp";
 const DESCRIPTION =
-  "The full archive of Romeo Culp's work — a concept website, digital illustration, and brand identity projects.";
+  "The full archive of Romeo Culp's work — live websites, digital illustrations, and brand identity projects.";
 
 export const metadata: Metadata = {
   title: TITLE,

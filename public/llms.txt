@@ -13,6 +13,7 @@ Romeo Culp is primarily a web developer / front-end engineer. His main focus is 
 ## Projects
 
 - Kage — a full concept website for an anime-style co-op action roguelite, designed and built entirely on spec (unsolicited, not commissioned) and sent directly to the studio behind the game.
+- Mahatma Gandhi — a multi-page educational website about Gandhi's biography, challenges, and impact: https://gandhiwebsite.vercel.app/
 - Love At First Sight, Losing Focus — original halftone digital illustrations.
 - Veil — brand identity and app design work.
 

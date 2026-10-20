@@ -100,7 +100,7 @@ export default function ProjectsList() {
         </div>
         <div className="max-w-xs">
           <p className="font-serif text-paper/50">
-            Four pieces — a live concept build, two halftone illustrations, and an original brand identity.
+            Five pieces — two live websites, two halftone illustrations, and an original brand identity.
           </p>
           <Link
             href="/work"

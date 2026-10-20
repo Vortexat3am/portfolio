@@ -23,8 +23,19 @@ export const projects: Project[] = [
     imagePosition: "8% center",
   },
   {
-    id: "eye-heart",
+    id: "gandhi",
     index: "02",
+    title: "Mahatma Gandhi",
+    category: "Educational Website",
+    blurb: "A multi-page educational website exploring Mahatma Gandhi's biography, the challenges he faced, and his lasting impact. A cinematic monochrome aesthetic with warm orange accents brings the historical storytelling and personal reflection together.",
+    image: "/images/projects/GandhiWebsite.png",
+    rotate: "rotate-1",
+    link: "https://gandhiwebsite.vercel.app/",
+    imagePosition: "42% center",
+  },
+  {
+    id: "eye-heart",
+    index: "03",
     title: "Love At First Sight",
     category: "Digital Illustration",
     blurb: "An original halftone study, built from scratch — a single eye rendered in stark black and white, with a heart standing in for the pupil. Minimal and graphic, with the concept doing most of the talking.",
@@ -33,7 +44,7 @@ export const projects: Project[] = [
   },
   {
     id: "falling-into-eye",
-    index: "03",
+    index: "04",
     title: "Losing Focus",
     category: "Digital Illustration",
     blurb: "An original piece — a portrait pushed through halftone and noise until it starts to break apart. Grain and a blown-out red spark in the pupil give it a glitchy, off-balance feel, like the moment right before you look away.",
@@ -42,7 +53,7 @@ export const projects: Project[] = [
   },
   {
     id: "veil",
-    index: "04",
+    index: "05",
     title: "Veil",
     category: "Brand Identity / App",
     blurb: "An original brand identity for Veil, a reminder app concept — mark, name, color, and tone all designed from scratch to feel friendly rather than naggy. The bell mascot does double duty as a logo and as the personality for the whole product.",

@@ -54,7 +54,7 @@ export default function WorkGrid() {
           All Work
         </h1>
         <p className="work-reveal mt-6 max-w-xl font-serif text-lg text-paper/60">
-          Every project so far, laid out in full — a concept build, illustration, and brand identity work.
+          Every project so far, laid out in full — two live websites, digital illustrations, and brand identity work.
         </p>
 
         <div className="mt-16 grid gap-6 sm:grid-cols-2 md:mt-20">
